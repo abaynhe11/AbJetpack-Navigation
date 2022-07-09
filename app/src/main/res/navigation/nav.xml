@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/navigate_home">
+
+    <fragment
+        android:id="@+id/navigate_home"
+        android:name="com.google.firebase.quickstart.auth.abjetpacknavigation.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigate_home_to_flow_step1"
+            app:destination="@id/flow_step1" />
+    </fragment>
+    <fragment
+        android:id="@+id/flow_step1"
+        android:name="com.google.firebase.quickstart.auth.abjetpacknavigation.Step1FlowFragment"
+        android:label="step1_flow"
+        tools:layout="@layout/step1_flow" >
+        <action
+            android:id="@+id/action_flow_step1_to_flow_step2"
+            app:destination="@+id/flow_step2" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/flow_step2"
+        android:name="com.google.firebase.quickstart.auth.abjetpacknavigation.Step2FlowFragment"
+        android:label="step2_flow"
+        tools:layout="@layout/step2_flow" >
+        <argument
+            android:name="age"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_flow_step2_to_navigate_home"
+            app:destination="@id/navigate_home" />
+    </fragment>
+</navigation>
